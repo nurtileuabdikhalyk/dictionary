@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="hero-wrap ftco-degree-bg"   style="background-color: #e276f5;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                <div class="text text-center">
+                    <p style="font-size: 42px;color:#423e42;">
+                        Машиналық оқыту негізінде қазақ тілінің тақырыптық сөздік жүйесін әзірлеу (шектеулі тақырыптар
+                        үшін)
+                    </p>
+                    <form action="{% url 'search' %}" method="post" class="search-location mt-md-5">
+                        {% csrf_token %}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10 align-items-end">
+                                <div class="form-group">
+                                    <div class="form-field">
+                                        <input type="text" name="search" class="form-control"
+                                               placeholder="Сөзді іздеу">
+
+                                        <button type="submit"><span class="ion-ios-search"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            {% for word in words %}
+
+            <div class="col-md-4">
+                <div class="property-wrap ftco-animate">
+
+                    <div class="text">
+
+                        <h3><a href="{% url 'word_single' forloop.counter0 %}">{{ word }}</a></h3>
+
+                        <form method="post" id="myform{{forloop.counter0}}">
+                            {% csrf_token %}
+                            <input hidden type="text" name='p' value='{{ word }}'>
+
+                            <a href="#" type="submit"
+                               onclick="document.getElementById('myform{{forloop.counter0}}').submit()"
+                               class="d-flex align-items-center justify-content-center btn-custom">
+                                <span class="ion-ios-add-circle-outline"></span>
+                            </a>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+

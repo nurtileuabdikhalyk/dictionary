@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if words %}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            {% for key, word in words.items %}
+
+            <div class="col-md-4">
+                <div class="property-wrap ftco-animate">
+
+                    <div class="text">
+
+                        <a href="{% url 'word_single' forloop.counter0 %}"><h3>{{ word }}</h3></a>
+
+                        <form method="post" id="myform{{forloop.counter0}}">
+                            {% csrf_token %}
+                            <input hidden type="text" name='p' value='{{ word }}'>
+
+                            <a href="#" type="submit"
+                               onclick="document.getElementById('myform{{forloop.counter0}}').submit()"
+                               class="d-flex align-items-center justify-content-center btn-custom">
+                                <span class="ion-ios-remove-circle-outline"></span>
+                            </a>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<div class="hero-wrap ftco-degree-bg" style="background-color: #e276f5;"
+     data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                <div class="text text-center">
+                    <p style="font-size: 42px;color:#423e42;">
+                        Сізде таңдаулы сөздер жоқ
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="ftco-section ftco-property-details">
+    <div class="container">
+<div class="row justify-content-center">
+      		<div class="col-md-12">
+      			<div class="property-details">
+
+      				<div class="text text-center">
+      					<h2>{{ word_kz }}</h2>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+        <div class="row">
+            <div class="col-md-12 pills">
+                <div class="bd-example bd-example-tabs">
+                    <div class="d-flex justify-content-center">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-description-tab" data-toggle="pill"
+                                   href="#pills-description" role="tab" aria-controls="pills-description"
+                                   aria-expanded="true">Қазақша</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill"
+                                   href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer"
+                                   aria-expanded="true">Руский</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review"
+                                   role="tab" aria-controls="pills-review" aria-expanded="true">English</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content" id="pills-tabContent">
+
+
+                         <div class="tab-pane fade show active" id="pills-description" role="tabpanel"
+                             aria-labelledby="pills-manufacturer-tab">
+                            <h2>{{ word_kz }}</h2>
+                            <p>{{ description_kz }}</p>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel"
+                             aria-labelledby="pills-manufacturer-tab">
+                              <h2>{{ word_ru }}</h2>
+                            <p>{{ description_ru }}</p>
+                        </div>
+                          <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                            <h2>{{ word_en }}</h2>
+                            <p>{{ description_en }}</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+  

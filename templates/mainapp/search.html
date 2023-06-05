@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if v %}
+<div class="hero-wrap ftco-degree-bg"  style="background-image: url({% static 'img/bg_1.jpg' %});" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                <div class="text text-center">
+                    <p style="font-size: 42px;color:#423e42;">
+                        Іздеу нәтижесі
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<section class="ftco-section" style="background-color:#ddabf5;">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="property-wrap ftco-animate">
+
+                    <div class="text">
+
+                   <a href="{% url 'word_single' i %}">    <h3>{{ word }}</h3></a>
+
+                        <a href="{% url 'word_single' i %}"
+                           class="d-flex align-items-center justify-content-center btn-custom">
+                            <span class="ion-ios-add-circle-outline"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+{% else %}
+<div class="hero-wrap ftco-degree-bg"  style="background-image: url({% static 'img/bg_1.jpg' %});" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
+                <div class="text text-center">
+                    <p style="font-size: 42px;color:#423e42;">
+                         Сіздің сұранымыңыз бойынша сөз табылмады!!!
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endif %}
+{% endblock content %}
